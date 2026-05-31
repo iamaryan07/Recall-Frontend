@@ -8,7 +8,7 @@ export default function LoginButton() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "https://recall-frontend-cz2r0k9uz-iamaryan07s-projects.vercel.app/chat/new",
+        redirectTo: "https://recall-frontend-cz2r0k9uz-iamaryan07s-projects.vercel.app",
       },
     });
 

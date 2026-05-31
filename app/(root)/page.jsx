@@ -48,6 +48,9 @@ export default function Home() {
 
     const authListener = supabase.auth.onAuthStateChange(
       (event, session) => {
+
+        console.log("AUTH EVENT =", event);
+        console.log("AUTH SESSION =", session);
         setUser(session?.user || null);
         setLoading(false);
       }
