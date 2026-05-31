@@ -9,6 +9,8 @@ import AuthLoading from "@/components/auth/AuthLoading";
 import { supabase } from "@/lib/supabase";
 
 export default function Home() {
+  console.log("HOME PAGE LOADED");
+
   const router = useRouter();
 
   const [user, setUser] = useState(null);
