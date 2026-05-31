@@ -14,6 +14,18 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    async function debug() {
+      const { data } = await supabase.auth.getSession();
+      console.log("SESSION =", data.session);
+
+      const { data: userData } = await supabase.auth.getUser();
+      console.log("USER =", userData.user);
+    }
+
+    debug();
+  }, []);
+
   async function getUser() {
     const { data } = await supabase.auth.getUser();
 
