@@ -11,6 +11,17 @@ import { supabase } from "@/lib/supabase";
 export default function Home() {
   console.log("HOME PAGE LOADED");
 
+  useEffect(() => {
+    console.log("HASH =", window.location.hash);
+
+    const {
+      hash,
+      href,
+    } = window.location;
+
+    console.log("FULL URL =", href);
+  }, []);
+
   const router = useRouter();
 
   const [user, setUser] = useState(null);
@@ -38,13 +49,13 @@ export default function Home() {
   useEffect(() => {
     getUser();
 
-    if (window.location.hash) {
-      window.history.replaceState(
-        {},
-        document.title,
-        window.location.pathname
-      );
-    }
+    // if (window.location.hash) {
+    //   window.history.replaceState(
+    //     {},
+    //     document.title,
+    //     window.location.pathname
+    //   );
+    // }
 
     const authListener = supabase.auth.onAuthStateChange(
       (event, session) => {
